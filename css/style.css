@@ -458,25 +458,51 @@ pre {
     .container {
       max-width: 1140px; } }
 
-.container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto; }
+  .container-fluid {
+    width: 100%;
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px; }
+  .gallery-item {
+    overflow: hidden; /* Ensures no overflow if the image is larger than the container */
+  }
+  
+  .gallery-item img {
+    width: 100%; /* Makes the image fill the container horizontally */
+    height: 250px; /* Sets a fixed height for all images */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio and fills the container */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better design */
+  }
 
+  .row + .row {
+    margin-top: 20px; /* Adds a consistent top margin to all rows after the first */
+  }
+  
+  
+  
+  .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 30px; /* Adds space between rows */
+  
+  }
+  
+  .col {
+    padding: 15px; /* Adds padding between columns/images */
+  }
+      
 .no-gutters {
-  margin-right: 0;
-  margin-left: 0; }
+  margin-right: 30;
+  margin-left: 30; }
   .no-gutters > .col,
   .no-gutters > [class*="col-"] {
     padding-right: 0;
