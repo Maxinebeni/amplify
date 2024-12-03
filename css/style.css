@@ -465,6 +465,34 @@ pre {
     margin-right: auto;
     margin-left: auto;
   }
+  /* Adjust gallery layout for mobile view */
+@media (max-width: 768px) {
+  .row {
+    display: flex; /* Enables Flexbox layout */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: space-between; /* Ensures equal spacing between items */
+    gap: 10px; /* Adds consistent spacing between items */
+  }
+
+  .col-md-4, .col-6 {
+    flex: 0 0 calc(50% - 10px); /* Each column takes up 50% minus the gap for spacing */
+    max-width: calc(50% - 10px); /* Ensures two items per row */
+    box-sizing: border-box; /* Includes padding and border in the width calculation */
+  }
+
+  .gallery-item {
+    width: 100%; /* Ensures the item fits within the column */
+  }
+
+  .gallery-item img {
+    width: 100%; /* Ensures the image fills its container */
+    height: 250px; /* Sets a uniform height for all images */
+    object-fit: cover; /* Maintains aspect ratio and fills container */
+    border-radius: 5px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow */
+  }
+}
+
 
   .gallery-item {
     overflow: hidden; /* Ensures no overflow if the image is larger than the container */
@@ -499,6 +527,9 @@ pre {
   .col {
     padding: 15px; /* Adds padding between columns/images */
   }
+
+
+
       
 .no-gutters {
   margin-right: 30;
@@ -5438,6 +5469,21 @@ button.bg-dark:focus {
 .d-table-cell {
   display: table-cell !important; }
 
+  @media (max-width: 768px) {
+    .staff {
+      padding: 25px; /* Padding around each staff card */
+    }
+  
+    .row.no-gutters {
+      gap: 15px; /* Adds spacing between rows and cards */
+    }
+  
+    .d-flex {
+      flex-wrap: wrap; /* Ensures items wrap correctly in smaller screens */
+      justify-content: space-between; /* Adds space between items */
+    }
+  }  
+
 .d-flex {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -8047,7 +8093,7 @@ h1, h2, h3, h4, h5,
   padding-top: 30px; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
-      background: #000000 !important;
+      background: #fff !important;
       position: relative;
       top: 0;
       padding-top: 0;
@@ -8059,7 +8105,7 @@ h1, h2, h3, h4, h5,
     margin: 0 auto;
     padding: 0; }
   .ftco-navbar-light .navbar-brand {
-    color: #000000;
+    color: #fff;
     padding-top: .7rem;
     padding-bottom: .7rem; }
     .ftco-navbar-light .navbar-brand span {
@@ -8090,7 +8136,7 @@ h1, h2, h3, h4, h5,
         padding-right: 0;
         padding-bottom: 1rem;
         padding-top: 0;
-        color: #fff; } }
+        color: #000; } }
   .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
     color: #fff;
     border: 1px solid #e30087;
@@ -8122,7 +8168,7 @@ h1, h2, h3, h4, h5,
       color: #e30087; } }
   .ftco-navbar-light .navbar-toggler {
     border: none;
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: rgba(0, 0, 0, 0.5) !important;
     cursor: pointer;
     padding-right: 0;
     text-transform: uppercase;
@@ -9028,6 +9074,32 @@ textarea.form-control {
   .testimony-wrap .position {
     color: #000000;
     font-size: 16px; }
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 767.98px) {
+  .testimony-wrap .user-img {
+    width: 100px; /* Smaller images on mobile */
+    height: 90px;
+  }
+
+  .testimony-wrap .text {
+    padding: 0 10px; /* Further reduce padding */
+  }
+
+  .testimony-wrap p {
+    font-size: 18px; /* Smaller font for mobile */
+  }
+
+  .testimony-section .owl-nav {
+    display: none; /* Hide navigation arrows on mobile */
+  }
+
+  .testimony-section .owl-dots {
+    margin-top: 20px; /* Add spacing for dots navigation */
+  }
+}
+
+
 
 @media (max-width: 767.98px) {
   .about-image {
