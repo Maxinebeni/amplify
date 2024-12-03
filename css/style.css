@@ -465,80 +465,50 @@ pre {
     margin-right: auto;
     margin-left: auto;
   }
-  /* Adjust gallery layout for mobile view */
-@media (max-width: 768px) {
-  .row {
-    display: flex; /* Enables Flexbox layout */
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
-    justify-content: space-between; /* Ensures equal spacing between items */
-    gap: 10px; /* Adds consistent spacing between items */
-  }
+  
+/* General Styling */
+.gallery-item {
+  overflow: hidden; /* Ensures no overflow if the image is larger than the container */
+}
 
-  .col-md-4, .col-6 {
-    flex: 0 0 calc(50% - 10px); /* Each column takes up 50% minus the gap for spacing */
-    max-width: calc(50% - 10px); /* Ensures two items per row */
-    box-sizing: border-box; /* Includes padding and border in the width calculation */
-  }
+.gallery-item img {
+  width: 100%; /* Makes the image fill the container horizontally */
+  height: 250px; /* Sets a fixed height for all images */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio and fills the container */
+  border-radius: 5px; /* Optional: Adds rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better design */
+}
 
-  .gallery-item {
-    width: 100%; /* Ensures the item fits within the column */
-  }
+/* Row Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Ensures images wrap to the next row as needed */
+  margin-right: -15px; /* Aligns content correctly within the container */
+  margin-left: -15px; /* Aligns content correctly within the container */
+  margin-bottom: 30px; /* Adds space between rows */
+}
 
-  .gallery-item img {
-    width: 100%; /* Ensures the image fills its container */
-    height: 250px; /* Sets a uniform height for all images */
-    object-fit: cover; /* Maintains aspect ratio and fills container */
-    border-radius: 5px; /* Optional: Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow */
+/* Column Layout for Large Screens */
+.col {
+  padding: 15px; /* Adds padding between columns/images */
+  flex: 1 1 33.33%; /* Default: 3 columns per row */
+  max-width: 33.33%; /* Default: 3 columns per row */
+}
+
+/* Responsive Layout for Small Screens */
+@media (max-width: 576px) {
+  .col {
+    flex: 1 1 50%; /* Adjust to 2 columns per row on small screens */
+    max-width: 50%; /* Ensure columns do not exceed 50% width */
   }
 }
 
-
-  .gallery-item {
-    overflow: hidden; /* Ensures no overflow if the image is larger than the container */
-  }
-  
-  .gallery-item img {
-    width: 100%; /* Makes the image fill the container horizontally */
-    height: 250px; /* Sets a fixed height for all images */
-    object-fit: cover; /* Ensures the image maintains its aspect ratio and fills the container */
-    border-radius: 5px; /* Optional: Adds rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better design */
-  }
-
-  .row + .row {
-    margin-top: 20px; /* Adds a consistent top margin to all rows after the first */
-  }
-  
-  
-  
-  .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    margin-bottom: 30px; /* Adds space between rows */
-  
-  }
-  
-  .col {
-    padding: 15px; /* Adds padding between columns/images */
-  }
-
-
+/* Optional: Ensure consistent box-sizing */
+* {
+  box-sizing: border-box;
+}
 
       
-.no-gutters {
-  margin-right: 30;
-  margin-left: 30; }
-  .no-gutters > .col,
-  .no-gutters > [class*="col-"] {
-    padding-right: 0;
-    padding-left: 0; }
-
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,

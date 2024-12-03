@@ -63,7 +63,6 @@
    $.Scrollax();
 
 
-
    // Burger Menu
 	var burgerMenu = function() {
 
