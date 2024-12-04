@@ -385,6 +385,32 @@ mark,
   .blockquote-footer::before {
     content: "\2014\00A0"; }
 
+/* General Styling */
+.gallery-item {
+  overflow: hidden; /* Ensures no overflow if the image is larger than the container */
+}
+
+.gallery-item img {
+  width: 100%; /* Makes the image fill the container horizontally */
+  height: 300px; /* Sets a fixed height for all images */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio and fills the container */
+  border-radius: 5px; /* Optional: Adds rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better design */
+}
+
+/* Row Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Ensures images wrap to the next row as needed */
+  margin-right: -15px; /* Aligns content correctly within the container */
+  margin-left: -15px; /* Aligns content correctly within the container */
+  margin-bottom: 30px; /* Adds space between rows */
+}
+
+/* Optional: Ensure consistent box-sizing */
+* {
+  box-sizing: border-box;
+}
 .img-fluid {
   max-width: 100%;
   height: auto; }
@@ -466,48 +492,6 @@ pre {
     margin-left: auto;
   }
   
-/* General Styling */
-.gallery-item {
-  overflow: hidden; /* Ensures no overflow if the image is larger than the container */
-}
-
-.gallery-item img {
-  width: 100%; /* Makes the image fill the container horizontally */
-  height: 250px; /* Sets a fixed height for all images */
-  object-fit: cover; /* Ensures the image maintains its aspect ratio and fills the container */
-  border-radius: 5px; /* Optional: Adds rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better design */
-}
-
-/* Row Layout */
-.row {
-  display: flex;
-  flex-wrap: wrap; /* Ensures images wrap to the next row as needed */
-  margin-right: -15px; /* Aligns content correctly within the container */
-  margin-left: -15px; /* Aligns content correctly within the container */
-  margin-bottom: 30px; /* Adds space between rows */
-}
-
-/* Column Layout for Large Screens */
-.col {
-  padding: 15px; /* Adds padding between columns/images */
-  flex: 1 1 33.33%; /* Default: 3 columns per row */
-  max-width: 33.33%; /* Default: 3 columns per row */
-}
-
-/* Responsive Layout for Small Screens */
-@media (max-width: 576px) {
-  .col {
-    flex: 1 1 50%; /* Adjust to 2 columns per row on small screens */
-    max-width: 50%; /* Ensure columns do not exceed 50% width */
-  }
-}
-
-/* Optional: Ensure consistent box-sizing */
-* {
-  box-sizing: border-box;
-}
-
       
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
@@ -8610,7 +8594,7 @@ h1, h2, h3, h4, h5,
   background: #fafafa; }
 
 .services-section {
-  margin-top: -100px; }
+  margin-top: -20px; }
 
 .services {
   background: #fff;
@@ -8779,7 +8763,7 @@ textarea.form-control {
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 4em 0; } }
 
 .ftco-no-pt {
   padding-top: 0 !important; }
