@@ -230,46 +230,91 @@
 	  console.log('show');
 	});
 
-	// scroll
-	var scrollWindow = function() {
-		$(window).scroll(function(){
-			var $w = $(this),
+	$(document).ready(function () {
+		// Navbar scroll behavior
+		var scrollWindow = function () {
+			$(window).scroll(function () {
+				var $w = $(this),
 					st = $w.scrollTop(),
-					navbar = $('.ftco_navbar'),
-					sd = $('.js-scroll-wrap');
-
-			if (st > 150) {
-				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar = $(".ftco_navbar"),
+					sd = $(".js-scroll-wrap");
+	
+				if (st > 150) {
+					if (!navbar.hasClass("scrolled")) {
+						navbar.addClass("scrolled");
+					}
 				}
-			} 
-			if (st < 150) {
-				if ( navbar.hasClass('scrolled') ) {
-					navbar.removeClass('scrolled sleep');
+				if (st < 150) {
+					if (navbar.hasClass("scrolled")) {
+						navbar.removeClass("scrolled sleep");
+					}
 				}
-			} 
-			if ( st > 350 ) {
-				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+				if (st > 350) {
+					if (!navbar.hasClass("awake")) {
+						navbar.addClass("awake");
+					}
+	
+					if (sd.length > 0) {
+						sd.addClass("sleep");
+					}
 				}
-				
-				if(sd.length > 0) {
-					sd.addClass('sleep');
+				if (st < 350) {
+					if (navbar.hasClass("awake")) {
+						navbar.removeClass("awake");
+						navbar.addClass("sleep");
+					}
+					if (sd.length > 0) {
+						sd.removeClass("sleep");
+					}
 				}
-			}
-			if ( st < 350 ) {
-				if ( navbar.hasClass('awake') ) {
-					navbar.removeClass('awake');
-					navbar.addClass('sleep');
+			});
+		};
+	
+		scrollWindow();
+	
+		// Smooth scrolling for navigation links
+		$("a.nav-link").on("click", function (e) {
+			var target = $(this).attr("href");
+	
+			// If target is a data-section attribute
+			if (target.startsWith("#")) {
+				e.preventDefault(); // Prevent default anchor behavior
+	
+				var sectionName = target.substring(1); // Get the section name without '#'
+				var targetSection = $(`[data-section="${sectionName}"]`);
+	
+				if (targetSection.length) {
+					$("html, body").animate(
+						{
+							scrollTop: targetSection.offset().top - 70, // Adjust for navbar height
+						},
+						800 // Duration of scrolling animation
+					);
 				}
-				if(sd.length > 0) {
-					sd.removeClass('sleep');
-				}
+			} else if (target.includes("index.html#")) {
+				// Handle navigation to sections on the Home page from other pages
+				e.preventDefault(); // Prevent immediate default behavior
+				var sectionName = target.split("#")[1]; // Extract the section name
+				window.location.href = "index.html#" + sectionName; // Redirect to the correct section
 			}
 		});
-	};
-	scrollWindow();
-
+	
+		// Scroll to the correct section if the URL has a hash
+		if (window.location.href.includes("#")) {
+			var sectionName = window.location.href.split("#")[1]; // Extract the section name
+			var targetSection = $(`[data-section="${sectionName}"]`);
+	
+			if (targetSection.length) {
+				$("html, body").animate(
+					{
+						scrollTop: targetSection.offset().top - 70, // Adjust for navbar height
+					},
+					800 // Duration of scrolling animation
+				);
+			}
+		}
+	});
+	
 	var isMobile = {
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
